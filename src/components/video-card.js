@@ -1,5 +1,5 @@
 
-const VideoCard = ({width}) => {
+const VideoCard = ({width,id,title,creator,views}) => {
     return(
         <div className={`card-container flex flex-column gap-m ${width}`}>
             <div class="img-container badge">
@@ -8,12 +8,12 @@ const VideoCard = ({width}) => {
             </div>
 
             <div class="card-header">
-                <h4>Batman</h4>
-                <p class="card-subtitle m1">By Matt Reeves</p>
+                <h4>{title}</h4>
+                <p class="card-subtitle m1">{creator}</p>
             </div>
             
             <div class="card-body">
-                <p class="card-subtext">6K Views | 6 Hours Ago</p>
+                <p class="card-subtext">{views} Views | 6 Hours Ago</p>
             </div>
 
             <div class="card-footer">

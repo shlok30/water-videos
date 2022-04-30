@@ -13,7 +13,7 @@ const VideoContextProvider = ({children}) => {
     },[])
 
     return(
-        <VideoContext.Provider value = {{}}>
+        <VideoContext.Provider value = {{videoLibrary}}>
             {children}
         </VideoContext.Provider>
     )
