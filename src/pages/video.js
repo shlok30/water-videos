@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import Sidebar from "../components/sidebar"
 import VideoCard from "../components/video-card"
 import { useVideos } from "../context/video-context"
+import renderVideoCards from "../functions/renderVideoCards"
 
 const VideoPage = () => {
     
@@ -9,7 +10,9 @@ const VideoPage = () => {
     
     const {videoLibrary} = useVideos()
 
-    const {title,creator,description,views} = videoLibrary.find((video) => video["_id"] === videoId)
+    const {title,creator,description,views,categoryName} = videoLibrary.find((video) => video["_id"] === videoId)
+
+    const videosOfSameCategory = videoLibrary.filter((video) => video.categoryName === categoryName && video["_id"] !== videoId)
 
     //console.log(selectedVideoDetails)
 
@@ -47,9 +50,7 @@ const VideoPage = () => {
 
                 <div className = "flex flex-column random gap-m padding-m-inline">
                     <h2 className = "h-l m5-top center-text">Must Watch</h2>
-                    <VideoCard width = "card-full-width"/>
-                    <VideoCard width = "card-full-width"/>
-                    <VideoCard width = "card-full-width"/>
+                    {renderVideoCards(videosOfSameCategory,"card-full-width")}
                 </div>
 
             </div>
