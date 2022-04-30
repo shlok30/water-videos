@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const VideoCard = ({width,id,title,creator,views}) => {
     return(
@@ -17,7 +18,7 @@ const VideoCard = ({width,id,title,creator,views}) => {
             </div>
 
             <div class="card-footer">
-                <button class="btn btn-error full-width">Watch Now</button>
+                <Link to = {`/video/${id}`}><button class="btn btn-error full-width">Watch Now</button></Link>
             </div>
         </div>
     )
