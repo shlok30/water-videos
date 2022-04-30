@@ -4,7 +4,7 @@ const Sidebar = () => {
     return(
         <div className='m5-top'>
             <SidebarElements text = "homepage" icon = "home"/>
-            <SidebarElements text = "listing page" icon = "trending_up"/>
+            <SidebarElements text = "trending page" icon = "trending_up" link = "/trending"/>
             <SidebarElements text = "liked" icon = "favorite"/>
             <SidebarElements text = "watch later" icon = "schedule"/>
             <SidebarElements text = "history" icon = "history"/>

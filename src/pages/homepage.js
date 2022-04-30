@@ -23,7 +23,7 @@ const Homepage = () => {
                 </div>
                 <div style ={{width:"85%"}} >
                     <HeroImage />
-                    <div className={`container center-block flex ${videoLibrary.length%3 === 0 ? "space-between" : "space-around"} gap-l`}>
+                    <div className={`container center-block flex self-start ${videoLibrary.length%3 === 0 ? "space-between" : "space-around"} gap-l`}>
                         {renderVideoCards()}
                     </div>
                 </div>

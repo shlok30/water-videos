@@ -31,3 +31,19 @@
 .card-full-width{
   width:100% !important
 }
+
+.relative{
+  position: relative;
+}
+
+.bottom-0{
+  bottom:0;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.self-start{
+  align-items: self-start;
+}
