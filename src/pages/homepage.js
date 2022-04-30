@@ -1,19 +1,11 @@
 import HeroImage from "../components/hero"
 import Sidebar from "../components/sidebar"
-import VideoCard from "../components/video-card"
 import { useVideos } from "../context/video-context"
+import renderVideoCards from "../functions/renderVideoCards"
 
 const Homepage = () => {
 
     const {videoLibrary} = useVideos()
-
-    console.log(videoLibrary)
-
-    const renderVideoCards = () => {
-        return(
-            videoLibrary.map(({_id,title,creator,views}) => <VideoCard key = {_id} id = {_id} title = {title} creator = {creator} views = {views} />)
-        )
-    }
 
     return(
         <>
@@ -24,7 +16,7 @@ const Homepage = () => {
                 <div style ={{width:"85%"}} >
                     <HeroImage />
                     <div className={`container center-block flex self-start ${videoLibrary.length%3 === 0 ? "space-between" : "space-around"} gap-l`}>
-                        {renderVideoCards()}
+                        {renderVideoCards(videoLibrary)}
                     </div>
                 </div>
             </div>
