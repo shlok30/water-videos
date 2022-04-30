@@ -60,4 +60,31 @@ export const videos = [
     views : "400M",
     isTrending : true
   },
+  {
+    _id: uuid(),
+    title: "Shayad",
+    creator: "Arijit SIngh",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    views : "500M",
+    isTrending : true
+  },
+  {
+    _id: uuid(),
+    title: "Dr. Strange Trailer",
+    creator: "Marvel",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    views : "650M",
+    isTrending : true
+  },
+  {
+    _id: uuid(),
+    title: "Guided Meditation",
+    creator: "Sadhguru",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    views : "190K",
+    isTrending : true
+  },
 ];

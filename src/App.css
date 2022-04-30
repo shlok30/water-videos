@@ -47,3 +47,7 @@
 .self-start{
   align-items: self-start;
 }
+
+.primary-colour{
+  color : var(--primary-color)
+}
