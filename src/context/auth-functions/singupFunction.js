@@ -4,7 +4,10 @@ const signupFunction = (email,password) => {
     console.log({email,password})
     axios
      .post("/api/auth/signup",{email,password})
-     .then(res => console.log(res))
+     .then(res => {
+         console.log(res.data)
+         localStorage.setItem("userToken",res.data.encodedToken)
+     })
      .catch(err => console.log(err))
 }
 
