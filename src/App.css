@@ -51,3 +51,11 @@
 .primary-colour{
   color : var(--primary-color)
 }
+
+.display-none{
+  display: none;
+}
+
+.height-100vh{
+  height: 100vh;
+}
