@@ -7,7 +7,13 @@ const authFunction = (email,password,userDispatch,navigate,action) => {
      .then(res => {
          console.log(res.data)
          localStorage.setItem("userToken",res.data.encodedToken)
-         userDispatch({type : "LOGIN"})
+         if(action === "login"){
+            userDispatch({type : "LOGIN" , payload : res.data.foundUser})
+         }
+         else{
+            userDispatch({type : "SIGNUP"}) 
+         }
+         
          navigate("/")
      })
      .catch(err => console.log(err))
