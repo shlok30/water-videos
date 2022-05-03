@@ -1,10 +1,11 @@
 import { useLocation } from 'react-router-dom';
+import { useUser } from '../context/user-context';
 
 const Nav = () => {
 
     const location = useLocation()
 
-    console.log(location.pathname)
+    const {userState} = useUser()
 
     return(
         <nav className = {`navigation flex gap-xl align-center full-width ${location.pathname === '/login' || location.pathname === '/signup' ? 'display-none' : ''}`}>
@@ -13,7 +14,7 @@ const Nav = () => {
     	        <input className = "input-field" placeholder="Please Enter Text" />
             </div>
             <div className = "flex gap-xl flex-center grow-1" >
-    	        <button className="btn btn-secondary">Login</button>
+    	        <button className="btn btn-secondary">{userState.isLoggedIn ? "Logout" : "Login"}</button>
             </div>
         </nav>
     )

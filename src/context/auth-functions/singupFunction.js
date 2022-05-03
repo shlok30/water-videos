@@ -1,7 +1,6 @@
 import axios from 'axios'
-import { useUser } from '../user-context'
 
-const signupFunction = (email,password,userDispatch) => {
+const signupFunction = (email,password,userDispatch,navigate) => {
 
     axios
      .post("/api/auth/signup",{email,password})
@@ -9,7 +8,7 @@ const signupFunction = (email,password,userDispatch) => {
          console.log(res.data)
          localStorage.setItem("userToken",res.data.encodedToken)
          userDispatch({type : "LOGIN"})
-
+         navigate("/")
      })
      .catch(err => console.log(err))
 }
