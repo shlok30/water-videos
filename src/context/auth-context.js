@@ -1,5 +1,5 @@
 import {createContext , useContext, useState} from 'react'
-import signupFunction from './auth-functions/singupFunction'
+import authFunction from './auth-functions/authFunction'
 
 const AuthContext = createContext()
 
@@ -12,7 +12,7 @@ const AuthContextProvider = ({children}) => {
     console.log("Password State",password)
 
     return(
-        <AuthContext.Provider value ={{setEmail,setPassword,signupFunction,email,password}}>
+        <AuthContext.Provider value ={{setEmail,setPassword,authFunction,email,password}}>
             {children}
         </AuthContext.Provider>
     )

@@ -1,6 +1,14 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useAuth } from "../context/auth-context"
+import { useUser } from "../context/user-context"
 
 const Login = () => {
+
+    const {email,setEmail,password,setPassword,authFunction} = useAuth()
+
+    const {userDispatch} = useUser()
+
+    const navigate = useNavigate()
     
     return(
         <div className="flex flex-center height-100vh">
@@ -9,12 +17,12 @@ const Login = () => {
                     <div className = "primary-text center-text text-m bold primary-colour">Login</div>
                     <div className = "padding-s">
                         <label htmlFor="email-field" className="input-label">Email Address</label>
-                        <input type = "email" id = "email-field" className = "input-field m2-top full-width" style = {{display: "block",width:"100%"}} placeholder="Please Enter Email Here" />
+                        <input type = "email" id = "email-field" className = "input-field m2-top full-width" style = {{display: "block",width:"100%"}} placeholder="Please Enter Email Here" value = {email} onChange = {(e) => setEmail(e.target.value)} />
                     </div>
 
                     <div className="padding-s flex flex-column">
                         <label htmlFor="password-field" className="input-label">Enter Password</label>
-                        <input type = "password" id = "password-field" className = "input-field m2-top full-width" style = {{display: "block",width:"100%"}} placeholder="Please Enter Password Here" />
+                        <input type = "password" id = "password-field" className = "input-field m2-top full-width" style = {{display: "block",width:"100%"}} placeholder="Please Enter Password Here" value = {password} onChange = {(e) => setPassword(e.target.value)} />
                     </div>
                 
         
@@ -26,7 +34,7 @@ const Login = () => {
                         <a href="" className = "primary-text">Forgot Password</a>
                     </div>
 
-                    <button className="btn btn-secondary full-width m2-top">Login</button>
+                    <button className="btn btn-secondary full-width m2-top" onClick = {() => authFunction(email,password,userDispatch,navigate,"login")}>Login</button>
                     <div className = "m2-top">
                         <Link to = "/signup " className = "primary-text">Create New Account?</Link>
                     </div>

@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const signupFunction = (email,password,userDispatch,navigate) => {
+const authFunction = (email,password,userDispatch,navigate,action) => {
 
     axios
-     .post("/api/auth/signup",{email,password})
+     .post(`/api/auth/${action}`,{email,password})
      .then(res => {
          console.log(res.data)
          localStorage.setItem("userToken",res.data.encodedToken)
@@ -13,4 +13,4 @@ const signupFunction = (email,password,userDispatch,navigate) => {
      .catch(err => console.log(err))
 }
 
-export default signupFunction
+export default authFunction
