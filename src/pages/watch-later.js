@@ -1,4 +1,3 @@
-import VideoCard from "../components/video-card"
 import Sidebar from "../components/sidebar"
 import { useUser } from "../context/user-context"
 import renderVideoCards from "../functions/renderVideoCards"
@@ -15,7 +14,7 @@ const WatchLaterPage = () => {
                 </div>
                 <div className="container center-block">
                     <h2 className = "h-l m5-top">Watch Later</h2>
-                    <div className="flex gap-m m3-top">
+                    <div className="flex gap-m m3-top self-start">
                         {renderVideoCards(watchlater)}
                     </div>
                 </div>
