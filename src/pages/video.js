@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import Sidebar from "../components/sidebar"
 import VideoCard from "../components/video-card"
+import { useUser } from "../context/user-context"
 import { useVideos } from "../context/video-context"
 import renderVideoCards from "../functions/renderVideoCards"
 
@@ -9,6 +10,8 @@ const VideoPage = () => {
     const {videoId} = useParams()
     
     const {videoLibrary} = useVideos()
+
+    const {addToWatchLater,userDispatch} = useUser()
 
     const {title,creator,description,views,categoryName} = videoLibrary.find((video) => video["_id"] === videoId)
 
@@ -32,7 +35,7 @@ const VideoPage = () => {
                             <div className="flex gap-m">
                                 <i class="material-icons cursor-pointer primary-text-colour" >thumb_up</i>
                                 <i class="material-icons cursor-pointer primary-text-colour" >thumb_down</i>
-                                <i class="material-icons cursor-pointer primary-text-colour" >schedule</i>
+                                <i class="material-icons cursor-pointer primary-text-colour" onClick = {() => addToWatchLater({id : videoId , title , creator ,description ,views , categoryName},userDispatch)} >schedule</i>
                                 <i class="material-icons cursor-pointer primary-text-colour" >playlist_add</i>
                             </div>
                             <div className="flex gap-m">
