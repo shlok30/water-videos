@@ -1,51 +1,53 @@
-.App {
+.hero-container{
+  height:30rem;
+}
+
+.hero-container img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.footer {
+  background-color: var(--primary-color);
+  padding: 3rem 1rem;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   color: white;
+  border-top-right-radius: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.yellow-text-colour{
+  color:var(--warning-color)
 }
 
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
+.half-width img{
+  max-width: 100%;
+  max-height: 100%;
 }
 
-.brand-title span {
-  color: #ffde59;
+.random{
+  width:15rem
 }
 
-.brand-description {
-  font-size: 1.4rem;
+.card-full-width{
+  width:100% !important
 }
 
-.links {
-  display: flex;
+.relative{
+  position: relative;
 }
 
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+.bottom-0{
+  bottom:0;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.self-start{
+  align-items: self-start;
+}
+
+.primary-colour{
+  color : var(--primary-color)
 }
