@@ -87,3 +87,7 @@
 .hiddem{
   display:hidden;
 }
+
+.error-colour-text{
+  color:var(--error-color)
+}

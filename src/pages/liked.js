@@ -13,11 +13,17 @@ const LikedVideos = () => {
             <div className={likes.length > 0 ? "grow-1" : ""}>
                 <Sidebar />
             </div>
+           
             <div className="container center-block">
-                <h2 className = "h-l m5-top">Liked Videos</h2>
-                <div className="flex gap-m m3-top self-start">
-                    {renderVideoCards(likes)}
-                </div>
+            {
+                likes.length === 0 ? <p className=" m3-top text-l error-colour-text">No Videos</p> 
+                :
+                <> 
+                    <h2 className = "h-l m5-top">Liked Videos</h2>
+                    <div className="flex gap-m m3-top self-start">
+                        {renderVideoCards(likes)}
+                    </div>
+                </> }
             </div>
         </div>
       </>
