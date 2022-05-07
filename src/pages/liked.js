@@ -10,7 +10,7 @@ const LikedVideos = () => {
   return(
       <>
         <div className="flex">
-            <div className="grow-1">
+            <div className={likes.length > 0 ? "grow-1" : ""}>
                 <Sidebar />
             </div>
             <div className="container center-block">
