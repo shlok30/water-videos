@@ -13,7 +13,8 @@ export const videos = [
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     creator: "Soham Shah",
     views : "50K",
-    isTrending:false
+    isTrending:false,
+    categoryName : "Computer Programming"
   },
   {
     _id: uuid(),
@@ -22,7 +23,8 @@ export const videos = [
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     views : "150K",
-    isTrending : false
+    isTrending : false,
+    categoryName : "Computer Programming"
   },
   {
     _id: uuid(),
@@ -31,7 +33,8 @@ export const videos = [
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     views : "450K",
-    isTrending:false
+    isTrending:false,
+    categoryName : "Entertainment"
   },
   {
     _id: uuid(),
@@ -40,7 +43,8 @@ export const videos = [
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     views : "120M",
-    isTrending : true
+    isTrending : true,
+    categoryName : "Entertainment"
   },
   {
     _id: uuid(),
@@ -49,7 +53,8 @@ export const videos = [
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     views : "100M",
-    isTrending : true
+    isTrending : true,
+    categoryName : "Computer Programming"
   },
   {
     _id: uuid(),
@@ -58,7 +63,8 @@ export const videos = [
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     views : "400M",
-    isTrending : true
+    isTrending : true,
+    categoryName : "Entertainment"
   },
   {
     _id: uuid(),
@@ -67,7 +73,8 @@ export const videos = [
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     views : "500M",
-    isTrending : true
+    isTrending : true,
+    categoryName : "Entertainment"
   },
   {
     _id: uuid(),
@@ -76,7 +83,8 @@ export const videos = [
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     views : "650M",
-    isTrending : true
+    isTrending : true,
+    categoryName : "Entertainment"
   },
   {
     _id: uuid(),
@@ -85,6 +93,7 @@ export const videos = [
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     views : "190K",
-    isTrending : true
+    isTrending : true,
+    categoryName : "Entertainment"
   },
 ];

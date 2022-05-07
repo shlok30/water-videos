@@ -51,3 +51,27 @@
 .primary-colour{
   color : var(--primary-color)
 }
+
+.display-none{
+  display: none;
+}
+
+.height-100vh{
+  height: 100vh;
+}
+
+.success-text-colour{
+  color:var(--success-color)
+}
+
+.right-0{
+  right:0
+}
+
+.number{
+  background-color: var(--primary-color);
+}
+
+.m2-left{
+  margin-left: 0.5rem;
+}
