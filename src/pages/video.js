@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import Sidebar from "../components/sidebar"
 import VideoCard from "../components/video-card"
 import { useUser } from "../context/user-context"
+import dislikeVideo from "../context/user-functions/dislikeVideo"
 import { useVideos } from "../context/video-context"
 import renderVideoCards from "../functions/renderVideoCards"
 
@@ -22,7 +23,9 @@ const VideoPage = () => {
     //Checking if this video is already in watchlater?
     const alreadyInWatchLater = userState.watchlater.filter((video) => video["_id"] === videoId)
 
-    console.log("Alreayd in watch later ?",alreadyInWatchLater)
+    const alreadyInLikedVideos = userState.likes.filter((video) => video["_id"] === videoId)
+
+    console.log("Already in watch later ?",alreadyInWatchLater)
 
     return(
         <>
@@ -38,7 +41,7 @@ const VideoPage = () => {
                     
                         <div className = "flex gap-m space-between m2-top">
                             <div className="flex gap-m">
-                                <i class="material-icons cursor-pointer primary-text-colour" onClick = {() => likeVideo({"_id": videoId , title, creator, views},userDispatch)} >thumb_up</i>
+                                <i class= {`material-icons cursor-pointer ${alreadyInLikedVideos.length > 0 ? "success-text-colour" : "primary-text-colour"}`} onClick = {() => alreadyInLikedVideos.length > 0 ? dislikeVideo(videoId,userDispatch) : likeVideo({"_id": videoId , title, creator, views},userDispatch)} >thumb_up</i>
                                 <i class="material-icons cursor-pointer primary-text-colour" >thumb_down</i>
                                 <i class={`material-icons cursor-pointer ${alreadyInWatchLater.length > 0 ? "success-text-colour" :"primary-text-colour"}`} onClick = {() => alreadyInWatchLater.length > 0 ? removeFromWatchlater(videoId,userDispatch) : addToWatchLater({_id : videoId , title , creator ,description ,views , categoryName},userDispatch)} >schedule</i>
                                 <i class="material-icons cursor-pointer primary-text-colour" >playlist_add</i>
