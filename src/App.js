@@ -1,3 +1,4 @@
+import MockmanEs from "mockman-js";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/footer";
@@ -11,6 +12,7 @@ import Signup from "./pages/signup";
 import Trending from "./pages/trending";
 import VideoPage from "./pages/video";
 import WatchLaterPage from "./pages/watch-later";
+
 
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
         <Route path = "/liked-videos" element = {<LikedVideos />} />
         <Route path = "/playlist-listing" element = {<PlaylistListing />} />
         <Route path = "/test" element = {<PlaylistModal />} />
+        <Route path = "/mockman" element = {<MockmanEs />} />
       </Routes>
       <Footer />
     </div>

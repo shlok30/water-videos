@@ -44,7 +44,7 @@ const VideoPage = () => {
 
                         <img src = "https://cdn.mos.cms.futurecdn.net/foW7FiHncAEnBbTu6d7KKA.jpg" alt = "Video Image" />
 
-                        {playlistModalActive ? <PlaylistModal /> : ""}
+                        {playlistModalActive ? <PlaylistModal video = {{title,creator,description,views,videoId}}/> : ""}
                     
                         <div className = "flex gap-m space-between m2-top">
                             <div className="flex gap-m">
