@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/footer";
 import Nav from "./components/nav";
+import PlaylistModal from "./components/sidebar-components/playlist-components/playlist-modal";
 import Homepage from "./pages/homepage";
 import LikedVideos from "./pages/liked";
 import Login from "./pages/login";
@@ -25,6 +26,7 @@ function App() {
         <Route path = "/watch-later" element = {<WatchLaterPage />} />
         <Route path = "/liked-videos" element = {<LikedVideos />} />
         <Route path = "/playlist-listing" element = {<PlaylistListing />} />
+        <Route path = "/test" element = {<PlaylistModal />} />
       </Routes>
       <Footer />
     </div>
