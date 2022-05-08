@@ -5,6 +5,8 @@ import { useUser } from "../context/user-context"
 import dislikeVideo from "../context/user-functions/dislikeVideo"
 import { useVideos } from "../context/video-context"
 import renderVideoCards from "../functions/renderVideoCards"
+import PlaylistModal from "../components/sidebar-components/playlist-components/playlist-modal"
+import { usePlaylist } from "../context/playlist-context"
 
 const VideoPage = () => {
     
@@ -25,7 +27,9 @@ const VideoPage = () => {
 
     const alreadyInLikedVideos = userState.likes.filter((video) => video["_id"] === videoId)
 
-    console.log("Already in watch later ?",alreadyInWatchLater)
+    const {playlistModalActive,setPlaylistModalActive} = usePlaylist()
+
+    //console.log("Already in watch later ?",alreadyInWatchLater)
 
     return(
         <>
@@ -37,13 +41,16 @@ const VideoPage = () => {
                     <h2 className = "h-l m5-top">{title}</h2>
                     <p className="text-s">{creator}</p>
                     <div className="m2-top">
+
                         <img src = "https://cdn.mos.cms.futurecdn.net/foW7FiHncAEnBbTu6d7KKA.jpg" alt = "Video Image" />
+
+                        {playlistModalActive ? <PlaylistModal /> : ""}
                     
                         <div className = "flex gap-m space-between m2-top">
                             <div className="flex gap-m">
                                 <i class= {`material-icons cursor-pointer ${alreadyInLikedVideos.length > 0 ? "success-text-colour" : "primary-text-colour"}`} onClick = {() => alreadyInLikedVideos.length > 0 ? dislikeVideo(videoId,userDispatch) : likeVideo({"_id": videoId , title, creator, views},userDispatch)} >thumb_up</i>
                                 <i class={`material-icons cursor-pointer ${alreadyInWatchLater.length > 0 ? "success-text-colour" :"primary-text-colour"}`} onClick = {() => alreadyInWatchLater.length > 0 ? removeFromWatchlater(videoId,userDispatch) : addToWatchLater({_id : videoId , title , creator ,description ,views , categoryName},userDispatch)} >schedule</i>
-                                <i class="material-icons cursor-pointer primary-text-colour" >playlist_add</i>
+                                <i class="material-icons cursor-pointer primary-text-colour" onClick = {() => setPlaylistModalActive((prev) => !prev)}>playlist_add</i>
                             </div>
                             <div className="flex gap-m">
                                 <span>{views} Views</span>
