@@ -5,6 +5,7 @@ import Nav from "./components/nav";
 import Homepage from "./pages/homepage";
 import LikedVideos from "./pages/liked";
 import Login from "./pages/login";
+import PlaylistListing from "./pages/playlist-listing";
 import Signup from "./pages/signup";
 import Trending from "./pages/trending";
 import VideoPage from "./pages/video";
@@ -23,6 +24,7 @@ function App() {
         <Route path = "/signup" element = {<Signup />} />
         <Route path = "/watch-later" element = {<WatchLaterPage />} />
         <Route path = "/liked-videos" element = {<LikedVideos />} />
+        <Route path = "/playlist-listing" element = {<PlaylistListing />} />
       </Routes>
       <Footer />
     </div>
