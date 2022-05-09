@@ -5,12 +5,16 @@ import ModalElements from "./modal-elements"
 
 const PlaylistModal = (video) => {
 
-    const {newPlaylistName, newPlaylistDescription,setNewPlaylistName,setNewPlaylistDescription,setPlaylistModalActive} = usePlaylist()
+    const {newPlaylistName, newPlaylistDescription,setNewPlaylistName,setNewPlaylistDescription,setPlaylistModalActive,setSelectedPlaylist} = usePlaylist()
     const {addPlaylist,userDispatch,userState : {playlists}} = useUser()
 
-    const renderModalElements = (playlists) => playlists.map(({title,_id}) => <ModalElements title = {title} ley = {_id} _id = {_id} />)
+    const renderModalElements = (playlists) => playlists.map(({title,_id}) => <ModalElements title = {title} key = {_id} _id = {_id} />)
 
-    useEffect(() => console.log("Component was mounted"),[])
+    useEffect(() => {
+        console.log("Component was mounted")
+        const playlistReducer = (acc,curr) => [...acc,{id : curr["_id"] ,selected : true}] // Ask if this works ?
+        setSelectedPlaylist(playlists.reduce(playlistReducer,[]))
+    },[])
     
 
     return(
