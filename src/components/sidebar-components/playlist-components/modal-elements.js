@@ -1,6 +1,7 @@
 import { usePlaylist } from "../../../context/playlist-context"
 
 const ModalElements = ({title,_id}) => {
+    console.log("Didnt load the first time why?")
     const {selectedPlaylist,setSelectedPlaylist} = usePlaylist()
     const playlistInformation = selectedPlaylist.find((playlist) => playlist.id === _id)
     console.log("This is playlist information",playlistInformation)

@@ -48,9 +48,9 @@ const VideoPage = () => {
                     
                         <div className = "flex gap-m space-between m2-top">
                             <div className="flex gap-m">
-                                <i class= {`material-icons cursor-pointer ${alreadyInLikedVideos.length > 0 ? "success-text-colour" : "primary-text-colour"}`} onClick = {() => alreadyInLikedVideos.length > 0 ? dislikeVideo(videoId,userDispatch) : likeVideo({"_id": videoId , title, creator, views},userDispatch)} >thumb_up</i>
-                                <i class={`material-icons cursor-pointer ${alreadyInWatchLater.length > 0 ? "success-text-colour" :"primary-text-colour"}`} onClick = {() => alreadyInWatchLater.length > 0 ? removeFromWatchlater(videoId,userDispatch) : addToWatchLater({_id : videoId , title , creator ,description ,views , categoryName},userDispatch)} >schedule</i>
-                                <i class="material-icons cursor-pointer primary-text-colour" onClick = {() => setPlaylistModalActive((prev) => !prev)}>playlist_add</i>
+                                <i className= {`material-icons cursor-pointer ${alreadyInLikedVideos.length > 0 ? "success-text-colour" : "primary-text-colour"}`} onClick = {() => alreadyInLikedVideos.length > 0 ? dislikeVideo(videoId,userDispatch) : likeVideo({"_id": videoId , title, creator, views},userDispatch)} >thumb_up</i>
+                                <i className={`material-icons cursor-pointer ${alreadyInWatchLater.length > 0 ? "success-text-colour" :"primary-text-colour"}`} onClick = {() => alreadyInWatchLater.length > 0 ? removeFromWatchlater(videoId,userDispatch) : addToWatchLater({_id : videoId , title , creator ,description ,views , categoryName},userDispatch)} >schedule</i>
+                                <i className="material-icons cursor-pointer primary-text-colour" onClick = {() => setPlaylistModalActive((prev) => !prev)}>playlist_add</i>
                             </div>
                             <div className="flex gap-m">
                                 <span>{views} Views</span>
@@ -61,7 +61,7 @@ const VideoPage = () => {
 
                     <div className="m3-top" style={{paddingTop : "1rem"}}>
                         <p className="wt-600">Description</p>
-                        <p class="wt-300 grey-text m2-top">{description}</p>
+                        <p className="wt-300 grey-text m2-top">{description}</p>
                     </div>
                 </div>
 

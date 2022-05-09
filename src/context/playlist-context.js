@@ -10,6 +10,11 @@ const PlaylistContextProvider = ({children}) => {
     const [playlistModalActive,setPlaylistModalActive] = useState(false)
     const [selectedPlaylist,setSelectedPlaylist] = useState([])
 
+    const {userState : {playlists}} = useUser()
+
+    const playlistReducer = (acc,curr) => [...acc,{id : curr["_id"] ,selected : true}] 
+
+    useEffect(() => setSelectedPlaylist(playlists.reduce(playlistReducer,[])),[playlists])
 
     console.log("playlist states",selectedPlaylist)
 

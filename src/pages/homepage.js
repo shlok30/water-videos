@@ -9,7 +9,7 @@ const Homepage = () => {
 
     return(
         <>
-            <div class = "flex">
+            <div className = "flex">
                 <div className = "grow-1">
                     <Sidebar />
                 </div>
