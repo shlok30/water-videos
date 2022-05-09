@@ -2,7 +2,7 @@ import axios from "axios"
 
 const encodedToken = localStorage.getItem("userToken")
 
-const addPlaylist = (playlist,video,userDispatch) => {
+const addPlaylist = (playlist,video,userDispatch,setPlaylistModalActive) => {
     axios
      .post("/api/user/playlists",{playlist},{headers : {authorization : encodedToken}})
      .then(res => {
@@ -18,7 +18,10 @@ const addPlaylist = (playlist,video,userDispatch) => {
                  console.log(res.data)
                  axios
                   .get("/api/user/playlists",{headers : {authorization : encodedToken}})
-                  .then(res => userDispatch({type : "PLAYLIST", payload : res.data.playlists}))
+                  .then(res => {
+                    userDispatch({type : "PLAYLIST", payload : res.data.playlists})
+                    setPlaylistModalActive((prev) => !prev)
+                  })
                   .catch(err => console.log(err))
              })
              .catch(err => console.log(err))

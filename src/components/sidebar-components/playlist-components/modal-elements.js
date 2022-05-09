@@ -1,8 +1,9 @@
 
-const ModalElements = () => {
+const ModalElements = ({title,_id}) => {
+    console.log("Not getting called")
     return(
         <div className="flex self-start gap-s" >
-            <input type = "checkbox" />Random-1
+            <input type = "checkbox" />{title}
         </div>
     )
 }
