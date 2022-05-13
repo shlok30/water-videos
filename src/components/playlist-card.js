@@ -13,7 +13,7 @@ const PlaylistCard = ({title,numberOfVideos,videos,id,setModalActive}) => {
 
     const isVideoAlreadyInPlaylist = videos.find((video) => video["_id"] === videoId) //Checking in playlist videos array
 
-    const {userDispatch} = useUser()
+    const {userDispatch,removeFromPlaylist} = useUser()
  
     return(
         <div class="card-container flex flex-column text-card gap-m">
@@ -24,7 +24,7 @@ const PlaylistCard = ({title,numberOfVideos,videos,id,setModalActive}) => {
                 <p class="card-subtext">{numberOfVideos} Videos</p>
             </div>
             <div class="card-footer">
-                <button className="btn btn-error full-width" onClick={() => !isVideoAlreadyInPlaylist ? addToPlaylist(selectedVideo,id,userDispatch,setModalActive) : console.log("Remove from Playlist")}>{isVideoAlreadyInPlaylist ? "Remove from Playlist" : "Add to Playlist"}</button>
+                <button className="btn btn-error full-width" onClick={() => !isVideoAlreadyInPlaylist ? addToPlaylist(selectedVideo,id,userDispatch,setModalActive) : removeFromPlaylist(id,videoId,userDispatch)}>{isVideoAlreadyInPlaylist ? "Remove from Playlist" : "Add to Playlist"}</button>
             </div>
         </div>
     )

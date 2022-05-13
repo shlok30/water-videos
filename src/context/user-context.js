@@ -5,6 +5,7 @@ import removeFromWatchlater from './user-functions/removeFromWatchlater'
 import likeVideo from './user-functions/likeVideo'
 import dislikeVideo from './user-functions/dislikeVideo'
 import createPlaylist from './user-functions/createPlaylist'
+import removeFromPlaylist from './user-functions/removeFromPlaylist'
 
 const UserContext = createContext()
 
@@ -15,7 +16,7 @@ const UserContextProvider = ({children}) => {
     console.log("User State Changed",userState)
 
     return(
-        <UserContext.Provider value = {{userState,userDispatch,addToWatchLater,removeFromWatchlater,likeVideo,dislikeVideo,createPlaylist}}>
+        <UserContext.Provider value = {{userState,userDispatch,addToWatchLater,removeFromWatchlater,likeVideo,dislikeVideo,createPlaylist,removeFromPlaylist}}>
             {children}
         </UserContext.Provider>
     )
