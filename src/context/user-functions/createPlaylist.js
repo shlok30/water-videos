@@ -1,14 +1,23 @@
 import axios from "axios"
+import { videos } from "../../backend/db/videos"
+import addToPlaylist from "./addToPlaylist"
 
 const encodedToken = localStorage.getItem("userToken")
 
-const createPlaylist = (title,videoId) => {
+const createPlaylist = (title,videoId,userDispatch,setModalActive) => {
     axios
      .post("/api/user/playlists",{playlist : {title}},{headers : {authorization: encodedToken}})
      .then(res => {
         console.log(res.data)
         if(videoId){
-            console.log("Video also needs to be added")
+            const idOfLatestPlaylist = res.data.playlists[res.data.playlists.length - 1]["_id"]
+            const video = videos.find((video) => video["_id"] === videoId)
+            addToPlaylist(video,idOfLatestPlaylist,userDispatch,setModalActive)
+        }
+        else{
+            userDispatch({type : "PLAYLIST",payload : res.data.playlists})
+            setModalActive(false)
+            
         }
      })
      .catch(err => console.log(err))
