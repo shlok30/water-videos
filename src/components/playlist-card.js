@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Navigate, NavLink, useNavigate, useParams } from "react-router-dom"
 import { useUser } from "../context/user-context"
 import addToPlaylist from "../context/user-functions/addToPlaylist"
 import { useVideos } from "../context/video-context"
@@ -14,10 +14,12 @@ const PlaylistCard = ({title,numberOfVideos,videos,id,setModalActive}) => {
     const isVideoAlreadyInPlaylist = videos.find((video) => video["_id"] === videoId) //Checking in playlist videos array
 
     const {userDispatch,removeFromPlaylist} = useUser()
+
+    const navigate = useNavigate()
  
     return(
-        <div class="card-container flex flex-column text-card gap-m">
-	        <div class="card-header">
+        <div class="card-container flex flex-column text-card gap-m" >
+	        <div class="card-header cursor-pointer" onClick = {() => navigate(`/playlist/${id}`)}>
     	        <h4>{title}</h4>
             </div>
             <div class="card-body">
