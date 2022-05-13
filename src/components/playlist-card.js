@@ -28,7 +28,7 @@ const PlaylistCard = ({title,numberOfVideos,videos,id,setModalActive}) => {
                 <p class="card-subtext">{numberOfVideos} Videos</p>
             </div>
             <div class="card-footer">
-                {location.pathname !== "/playlists" ? 
+                {location.pathname !== "/playlists" ?  // On /playlist/id we will show both buttons but on /playlist we will only show view button
                 <>
                     <button className="btn btn-error full-width" onClick={() => !isVideoAlreadyInPlaylist ? addToPlaylist(selectedVideo,id,userDispatch,setModalActive) : removeFromPlaylist(id,videoId,userDispatch)}>{isVideoAlreadyInPlaylist ? "Remove from Playlist" : "Add to Playlist"}</button>
                     <button className = "m1-top btn btn-success full-width" onClick = {() => navigate(`/playlist/${id}`)}>View Playlist</button>
