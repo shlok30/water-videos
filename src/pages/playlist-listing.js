@@ -3,12 +3,16 @@ import PlaylistCard from "../components/playlist-card"
 import { useState } from "react"
 import PlaylistModal from "../components/playlist-modal"
 import { useParams } from "react-router-dom"
+import renderPlaylistCards from "../functions/renderPlaylistCard"
+import { useUser } from "../context/user-context"
 
 const PlaylistListing = () => {
 
     const [modalActive,setModalActive] = useState(false)
 
     const {videoId} = useParams()
+
+    const {userState : {playlists}} = useUser()
 
     return(
         <>
@@ -21,10 +25,7 @@ const PlaylistListing = () => {
                     <button className = "btn btn-error m2-top" onClick = {() => setModalActive(true)}>Create Playlist</button>
                     {modalActive ? <PlaylistModal setModalActive = {setModalActive} videoId = {videoId}  /> : ""}
                     <div className="flex space-between m3-top gap-m">
-                        <PlaylistCard />
-                        <PlaylistCard />
-                        <PlaylistCard />
-                        <PlaylistCard />
+                        {renderPlaylistCards(playlists)}
                     </div>
                 </div>
             </div>
