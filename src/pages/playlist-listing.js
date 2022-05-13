@@ -25,7 +25,7 @@ const PlaylistListing = () => {
                     <button className = "btn btn-error m2-top" onClick = {() => setModalActive(true)}>Create Playlist</button>
                     {modalActive ? <PlaylistModal setModalActive = {setModalActive} videoId = {videoId}  /> : ""}
                     <div className="flex space-between m3-top gap-m">
-                        {renderPlaylistCards(playlists)}
+                        {renderPlaylistCards(playlists,setModalActive)}
                     </div>
                 </div>
             </div>
