@@ -1,7 +1,12 @@
 import Sidebar from "../components/sidebar"
 import PlaylistCard from "../components/playlist-card"
+import { useState } from "react"
+import PlaylistModal from "../components/playlist-modal"
 
 const PlaylistListing = () => {
+
+    const [modalActive,setModalActive] = useState(false)
+
     return(
         <>
             <div className="flex">
@@ -11,6 +16,7 @@ const PlaylistListing = () => {
                 <div className="container center-block grow-1">
                     <h2 className = "h-l m5-top">Playlists</h2>
                     <button className = "btn btn-error m2-top">Create Playlist</button>
+                    {modalActive ? <PlaylistModal /> : ""}
                     <div className="flex space-between m3-top gap-m">
                         <PlaylistCard />
                         <PlaylistCard />
