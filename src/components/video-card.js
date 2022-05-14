@@ -13,7 +13,7 @@ const VideoCard = ({width,id,title,creator,views}) => {
 
     const path = location.pathname.split("/") // path[1] will contain "playlist" which will allow me to identify the location and conditionally render Remove from Playlist Button
     
-    const {removeFromWatchlater,userDispatch,dislikeVideo,removeFromPlaylist,addToHistory} = useUser()
+    const {removeFromWatchlater,userDispatch,dislikeVideo,removeFromPlaylist,addToHistory,removeFromHistory} = useUser()
 
     const handleClick = () => { 
         
@@ -43,7 +43,7 @@ const VideoCard = ({width,id,title,creator,views}) => {
                 {location.pathname === "/watch-later" ? <button className="btn btn-primary full-width m2-top" onClick = {() => removeFromWatchlater(id,userDispatch)}>Remove From Watchlater</button> : null}
                 {location.pathname === "/liked-videos" ? <button className="btn btn-primary full-width m2-top" onClick = {() => dislikeVideo(id,userDispatch)}>Dislike Video</button> : null}
                 {path[1] === "playlist" ? <button className= "btn btn-primary full-width m2-top" onClick = {() => removeFromPlaylist(playlistId,id,userDispatch)}>Delete From Playlist</button> : null}
-                {location.pathname === "/history" ? <button className="btn btn-primary full-width m2-top">Remove From History</button> : null}
+                {location.pathname === "/history" ? <button className="btn btn-primary full-width m2-top" onClick = {() => removeFromHistory(id,userDispatch)}>Remove From History</button> : null}
             </div>
         </div>
     )
