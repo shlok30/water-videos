@@ -7,7 +7,7 @@ const HistoryPage = () => {
 
     const {userState : {history}} = useUser()
 
-    const reverseOfHistory = [...history].reverse()
+    const reverseOfHistory = [...history].reverse() // To get the latest video added to the list as the first element
 
     return(
         <>
