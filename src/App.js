@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/footer";
 import Nav from "./components/nav";
+import HistoryPage from "./pages/history";
 import Homepage from "./pages/homepage";
 import LikedVideos from "./pages/liked";
 import Login from "./pages/login";
@@ -28,6 +29,7 @@ function App() {
         <Route path = "/playlists" element ={<PlaylistListing />} />
         <Route path = "/playlists/:videoId" element ={<PlaylistListing />} />
         <Route path = "/playlist/:playlistId" element = {<PlaylistPage />} />
+        <Route path = "/history" element = {<HistoryPage />} />
       </Routes>
       <Footer />
     </div>
