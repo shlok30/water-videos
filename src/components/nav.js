@@ -5,7 +5,7 @@ const Nav = () => {
 
     const location = useLocation()
 
-    const {userState} = useUser()
+    const {userState,userDispatch} = useUser()
 
     const navigate = useNavigate()
 
@@ -16,7 +16,7 @@ const Nav = () => {
     	        <input className = "input-field" placeholder="Please Enter Text" />
             </div>
             <div className = "flex gap-xl flex-center grow-1" >
-    	        <button className="btn btn-secondary" onClick = {() => navigate("/login")}>{userState.isLoggedIn ? "Logout" : "Login"}</button>
+    	        <button className="btn btn-secondary" onClick = {() => userState.isLoggedIn ? userDispatch({type : "LOGOUT"}) : navigate("/login")}>{userState.isLoggedIn ? "Logout" : "Login"}</button>
             </div>
         </nav>
     )

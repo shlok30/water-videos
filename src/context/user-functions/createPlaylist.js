@@ -2,9 +2,11 @@ import axios from "axios"
 import { videos } from "../../backend/db/videos"
 import addToPlaylist from "./addToPlaylist"
 
-const encodedToken = localStorage.getItem("userToken")
 
 const createPlaylist = (title,videoId,userDispatch,setModalActive) => {
+
+    const encodedToken = localStorage.getItem("userToken")
+
     axios
      .post("/api/user/playlists",{playlist : {title}},{headers : {authorization: encodedToken}})
      .then(res => {

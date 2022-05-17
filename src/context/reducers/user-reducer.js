@@ -2,11 +2,14 @@
 const userReducer = (state,{type,payload}) => {
     switch(type){
         case "LOGIN":
-            console.log("Login was used")
-            return {...state,isLoggedIn : true ,likes : [...payload.likes] , history : [...payload.history] , likes : [...payload.likes] , watchlater : [...payload.watchlater] , playlists: [...payload.playlists] }
+            //console.log("Login was used")
+            return {...state,isLoggedIn : true ,likes : [...payload.likes] , history : [...payload.history] , watchlater : [...payload.watchlater] , playlists: [...payload.playlists] }
         case "SIGNUP":
-            console.log("Signup was used")
+            //console.log("Signup was used")
             return {...state,isLoggedIn : true}
+        case "LOGOUT":
+            localStorage.clear()
+            return {...state,isLoggedIn : false, likes :[], history : [], watchlater : [], playlists : []}
         case "LIKE":
             return {...state, likes : [...payload]}
         case "HISTORY":

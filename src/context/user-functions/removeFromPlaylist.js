@@ -1,9 +1,9 @@
 import axios from "axios"
 
-const encodedToken = localStorage.getItem("userToken")
-
 const removeFromPlaylist = (playlistId,videoId,userDispatch) => {
     //console.log("Video Id is ",videoId , "Playlist Id is ",playlistId)
+    const encodedToken = localStorage.getItem("userToken")
+    
     axios
      .delete(`/api/user/playlists/${playlistId}/${videoId}`, {headers : {authorization: encodedToken}})
      .then(res => {
