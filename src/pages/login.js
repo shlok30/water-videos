@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useAuth } from "../context/auth-context"
 import { useUser } from "../context/user-context"
 
@@ -9,7 +9,11 @@ const Login = () => {
     const {userDispatch} = useUser()
 
     const navigate = useNavigate()
-    
+
+    const location = useLocation()
+
+    const from = location.state?.from
+        
     return(
         <div className="flex flex-center height-100vh">
             <div className="container center-block half-width">
@@ -34,9 +38,9 @@ const Login = () => {
                         <a href="" className = "primary-text">Forgot Password</a>
                     </div>
 
-                    <button className="btn btn-secondary full-width m2-top" onClick = {() => authFunction(email,password,userDispatch,navigate,"login")}>Login</button>
+                    <button className="btn btn-secondary full-width m2-top" onClick = {() => authFunction(email,password,userDispatch,navigate,"login",from)}>Login</button>
                     <div className = "m2-top">
-                        <Link to = "/signup " className = "primary-text">Create New Account?</Link>
+                        <Link to = "/signup " className = "primary-text" state = {{from}}>Create New Account?</Link>
                     </div>
                 
                 </div>

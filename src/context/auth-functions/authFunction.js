@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const authFunction = (email,password,userDispatch,navigate,action) => {
+const authFunction = (email,password,userDispatch,navigate,action,from) => {
 
     axios
      .post(`/api/auth/${action}`,{email,password})
@@ -14,7 +14,7 @@ const authFunction = (email,password,userDispatch,navigate,action) => {
             userDispatch({type : "SIGNUP"}) 
          }
          
-         navigate("/")
+         from ? navigate(from) : navigate("/")
      })
      .catch(err => console.log(err))
 }
