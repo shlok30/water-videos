@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import Sidebar from "../components/sidebar"
 import VideoCard from "../components/video-card"
+import { useUser } from "../context/user-context"
 import { useVideos } from "../context/video-context"
 import renderVideoCards from "../functions/renderVideoCards"
 
@@ -10,11 +11,18 @@ const VideoPage = () => {
     
     const {videoLibrary} = useVideos()
 
+    const {addToWatchLater,userDispatch,userState,removeFromWatchlater} = useUser()
+
     const {title,creator,description,views,categoryName} = videoLibrary.find((video) => video["_id"] === videoId)
 
     const videosOfSameCategory = videoLibrary.filter((video) => video.categoryName === categoryName && video["_id"] !== videoId)
 
     //console.log(selectedVideoDetails)
+
+    //Checking if this video is already in watchlater?
+    const alreadyInWatchLater = userState.watchlater.filter((video) => video["_id"] === videoId)
+
+    console.log("Alreayd in watch later ?",alreadyInWatchLater)
 
     return(
         <>
@@ -32,7 +40,7 @@ const VideoPage = () => {
                             <div className="flex gap-m">
                                 <i class="material-icons cursor-pointer primary-text-colour" >thumb_up</i>
                                 <i class="material-icons cursor-pointer primary-text-colour" >thumb_down</i>
-                                <i class="material-icons cursor-pointer primary-text-colour" >schedule</i>
+                                <i class={`material-icons cursor-pointer ${alreadyInWatchLater.length > 0 ? "success-text-colour" :"primary-text-colour"}`} onClick = {() => alreadyInWatchLater.length > 0 ? removeFromWatchlater(videoId,userDispatch) : addToWatchLater({_id : videoId , title , creator ,description ,views , categoryName},userDispatch)} >schedule</i>
                                 <i class="material-icons cursor-pointer primary-text-colour" >playlist_add</i>
                             </div>
                             <div className="flex gap-m">

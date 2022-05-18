@@ -1,6 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+import { useUser } from "../context/user-context"
 
 const VideoCard = ({width,id,title,creator,views}) => {
+
+    const location = useLocation()
+    
+    const {removeFromWatchlater,userDispatch} = useUser()
+
     return(
         <div className={`card-container flex flex-column gap-m ${width}`}>
             <div class="img-container badge">
@@ -19,6 +25,7 @@ const VideoCard = ({width,id,title,creator,views}) => {
 
             <div class="card-footer">
                 <Link to = {`/video/${id}`}><button class="btn btn-error full-width">Watch Now</button></Link>
+                {location.pathname === "/watch-later" ? <button className="btn btn-primary full-width m2-top" onClick={() => removeFromWatchlater(id,userDispatch)}>Remove From Watchlater</button> : null}
             </div>
         </div>
     )
