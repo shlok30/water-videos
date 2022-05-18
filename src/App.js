@@ -1,7 +1,9 @@
-import { Route, Routes } from "react-router-dom";
+import {useEffect} from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/footer";
 import Nav from "./components/nav";
+import { useUser } from "./context/user-context";
 import RequiresAuth from "./functions/requiresAuth";
 import HistoryPage from "./pages/history";
 import Homepage from "./pages/homepage";
@@ -16,6 +18,7 @@ import WatchLaterPage from "./pages/watch-later";
 
 
 function App() {
+
   return (
     <div className="App">
       <Nav />
