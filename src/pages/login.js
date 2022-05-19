@@ -4,7 +4,7 @@ import { useUser } from "../context/user-context"
 
 const Login = () => {
 
-    const {email,setEmail,password,setPassword,authFunction} = useAuth()
+    const {email,setEmail,password,setPassword,authFunction,authError,setAuthError} = useAuth()
 
     const {userDispatch} = useUser()
 
@@ -38,12 +38,15 @@ const Login = () => {
                         <a href="" className = "primary-text">Forgot Password</a>
                     </div>
 
-                    <button className="btn btn-secondary full-width m2-top" onClick = {() => authFunction(email,password,userDispatch,navigate,"login",from)}>Login</button>
+                    <button className="btn btn-secondary full-width m2-top" onClick = {() => authFunction(email,password,userDispatch,navigate,"login",from,setAuthError)}>Login</button>
                     <div className = "m2-top">
                         <Link to = "/signup " className = "primary-text" state = {{from}}>Create New Account?</Link>
                     </div>
-                
+
+                    <p className="error-colour-text m2-top">{authError}</p>
+
                 </div>
+
             </div>
         </div>
     )
