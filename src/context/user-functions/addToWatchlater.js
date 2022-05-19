@@ -1,9 +1,8 @@
 import axios from 'axios'
 
-const encodedToken = localStorage.getItem("userToken")
-
 const addToWatchLater = (video,userDispatch) => {
     //console.log("add to watch later and encoded token",encodedToken)
+    const encodedToken = localStorage.getItem("userToken")
     axios
      .post("/api/user/watchlater",{video},{headers : {authorization : encodedToken}})
      .then((res) => {

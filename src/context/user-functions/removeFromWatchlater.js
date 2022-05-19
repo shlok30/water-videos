@@ -1,10 +1,12 @@
 import axios from "axios"
 
-const encodedToken = localStorage.getItem("userToken")
 
-console.log("This is encodedTOkn",encodedToken)
+
+//console.log("This is encodedTOkn",encodedToken)
 
 const removeFromWatchlater = (videoId,userDispatch) => {
+
+    const encodedToken = localStorage.getItem("userToken")
     
     axios
      .delete(`/api/user/watchlater/${videoId}`,{headers : {authorization : encodedToken}})
