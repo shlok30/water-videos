@@ -3,14 +3,14 @@ import { useUser } from "../context/user-context"
 
 const Footer = () => {
 
-    const {userState : {likes,watchlater}} = useUser()
+    const {userState : {likes,watchlater,playlists}} = useUser()
 
     const location = useLocation()
 
-    console.log("path from footer ",location.pathname)
+    const absolutePath = location.pathname.split("/")
 
     return(
-        <footer className={`footer m6-top ${location.pathname === '/login' || location.pathname === '/signup' ? "display-none" : ""} ${(location.pathname === "/liked-videos" && likes.length === 0)  || (location.pathname === "/watch-later" && watchlater.length === 0) ? "fixed bottom-0 full-width" : "" }`}>
+        <footer className={`footer m6-top ${location.pathname === '/login' || location.pathname === '/signup' || absolutePath[1] === "playlist" ? "display-none" : ""} ${(location.pathname === "/liked-videos" && likes.length === 0)  || (location.pathname === "/watch-later" && watchlater.length === 0) || (absolutePath[1] === "playlists" && playlists.length < 4 ) ? "fixed bottom-0 full-width" : "" }`}>
             Made by Shlok
         </footer>
     )
