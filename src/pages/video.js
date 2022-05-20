@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, NavLink, useParams } from "react-router-dom"
 import Sidebar from "../components/sidebar"
 import VideoCard from "../components/video-card"
 import { useUser } from "../context/user-context"
@@ -43,7 +43,7 @@ const VideoPage = () => {
                             <div className="flex gap-m">
                                 <i class= {`material-icons cursor-pointer ${alreadyInLikedVideos.length > 0 ? "success-text-colour" : "primary-text-colour"}`} onClick = {() => alreadyInLikedVideos.length > 0 ? dislikeVideo(videoId,userDispatch) : likeVideo({"_id": videoId , title, creator, views},userDispatch)} >thumb_up</i>
                                 <i class={`material-icons cursor-pointer ${alreadyInWatchLater.length > 0 ? "success-text-colour" :"primary-text-colour"}`} onClick = {() => alreadyInWatchLater.length > 0 ? removeFromWatchlater(videoId,userDispatch) : addToWatchLater({_id : videoId , title , creator ,description ,views , categoryName},userDispatch)} >schedule</i>
-                                <i class="material-icons cursor-pointer primary-text-colour" >playlist_add</i>
+                                <Link to = {`/playlists/${videoId}`} class="material-icons cursor-pointer primary-text-colour">playlist_add</Link>
                             </div>
                             <div className="flex gap-m">
                                 <span>{views} Views</span>

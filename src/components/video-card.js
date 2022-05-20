@@ -1,13 +1,17 @@
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useParams } from "react-router-dom"
 import { useUser } from "../context/user-context"
 
 const VideoCard = ({width,id,title,creator,views}) => {
 
     const location = useLocation()
 
-    console.log("location path",location.pathname)
+    const {playlistId} = useParams()
+
+    //console.log("location path",location.pathname)
+
+    const path = location.pathname.split("/") // path[1] will contain "playlist" which will allow me to identify the location and conditionally render Remove from Playlist Button
     
-    const {removeFromWatchlater,userDispatch,dislikeVideo} = useUser()
+    const {removeFromWatchlater,userDispatch,dislikeVideo,removeFromPlaylist} = useUser()
 
     return(
         <div className={`card-container flex flex-column gap-m ${width}`}>
@@ -29,6 +33,7 @@ const VideoCard = ({width,id,title,creator,views}) => {
                 <Link to = {`/video/${id}`}><button class="btn btn-error full-width">Watch Now</button></Link>
                 {location.pathname === "/watch-later" ? <button className="btn btn-primary full-width m2-top" onClick = {() => removeFromWatchlater(id,userDispatch)}>Remove From Watchlater</button> : null}
                 {location.pathname === "/liked-videos" ? <button className="btn btn-primary full-width m2-top" onClick = {() => dislikeVideo(id,userDispatch)}>Dislike Video</button> : null}
+                {path[1] === "playlist" ? <button className= "btn btn-primary full-width m2-top" onClick = {() => removeFromPlaylist(playlistId,id,userDispatch)}>Delete From Playlist</button> : null}
             </div>
         </div>
     )
