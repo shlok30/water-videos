@@ -15,7 +15,7 @@ const HistoryPage = () => {
                 <div className={history.length !== 0 ? "grow-1" : ""}>
                     <Sidebar />
                 </div>
-                <div className="container center-block">
+                <div className={`container center-block ${history.length === 0 ? "grow-1" : ""}`}>
                     <div className="flex space-between m5-top">
                         <h2 className = "h-l">History</h2>
                         <button className="btn btn-error" onClick = {() => deleteHistory(userDispatch)}>Delete History</button>
