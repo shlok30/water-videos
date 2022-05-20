@@ -1,7 +1,5 @@
 import axios from "axios"
 
-
-
 const addToPlaylist = (video,playlistId,userDispatch,setModalActive) => {
 
    const encodedToken = localStorage.getItem("userToken")
