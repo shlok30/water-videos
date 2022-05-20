@@ -4,8 +4,10 @@ import { useUser } from "../context/user-context"
 const VideoCard = ({width,id,title,creator,views}) => {
 
     const location = useLocation()
+
+    console.log("location path",location.pathname)
     
-    const {removeFromWatchlater,userDispatch} = useUser()
+    const {removeFromWatchlater,userDispatch,dislikeVideo} = useUser()
 
     return(
         <div className={`card-container flex flex-column gap-m ${width}`}>
@@ -25,7 +27,8 @@ const VideoCard = ({width,id,title,creator,views}) => {
 
             <div class="card-footer">
                 <Link to = {`/video/${id}`}><button class="btn btn-error full-width">Watch Now</button></Link>
-                {location.pathname === "/watch-later" ? <button className="btn btn-primary full-width m2-top" onClick={() => removeFromWatchlater(id,userDispatch)}>Remove From Watchlater</button> : null}
+                {location.pathname === "/watch-later" ? <button className="btn btn-primary full-width m2-top" onClick = {() => removeFromWatchlater(id,userDispatch)}>Remove From Watchlater</button> : null}
+                {location.pathname === "/liked-videos" ? <button className="btn btn-primary full-width m2-top" onClick = {() => dislikeVideo(id,userDispatch)}>Dislike Video</button> : null}
             </div>
         </div>
     )

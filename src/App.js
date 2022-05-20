@@ -3,6 +3,7 @@ import "./App.css";
 import Footer from "./components/footer";
 import Nav from "./components/nav";
 import Homepage from "./pages/homepage";
+import LikedVideos from "./pages/liked";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Trending from "./pages/trending";
@@ -21,6 +22,7 @@ function App() {
         <Route path = "/login" element = {<Login />} />
         <Route path = "/signup" element = {<Signup />} />
         <Route path = "/watch-later" element = {<WatchLaterPage />} />
+        <Route path = "/liked-videos" element = {<LikedVideos />} />
       </Routes>
       <Footer />
     </div>

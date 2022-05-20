@@ -75,3 +75,19 @@
 .m2-left{
   margin-left: 0.5rem;
 }
+
+.bottom-0{
+  bottom : 0 !important
+}
+
+.fixed{
+  position: fixed;
+}
+
+.hiddem{
+  display:hidden;
+}
+
+.error-colour-text{
+  color:var(--error-color)
+}
