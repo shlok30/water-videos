@@ -22,15 +22,15 @@ const PlaylistPage = () => {
     return(
         <>
             <div className="flex">
-                    <div className="grow-1">
+                    <div className={videos.length !== 0 ? "grow-1" : ""}>
                         <Sidebar />
                     </div>
-                    <div className="container center-block">
+                    <div className={`container center-block" ${videos.length === 0 ? "grow-1" : ""} `}>
                         <div className="flex space-between m5-top">
                             <h2 className = "h-l">{title}</h2>
                             <button className="btn btn-error" onClick = {handleClick}>Delete Playlist</button>
                         </div>
-                        <div className="flex gap-m space-between m3-top">
+                        <div className="flex gap-m space-around self-start m3-top">
                             {renderVideoCards(videos)}
                         </div>
                     </div>
