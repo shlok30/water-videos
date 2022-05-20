@@ -1,7 +1,5 @@
 import axios from "axios"
 
-const encodedToken = localStorage.getItem("userToken")
-
 const dislikeVideo = (videoId,userDispatch) => {
 
     const encodedToken = localStorage.getItem("userToken")
