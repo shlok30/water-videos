@@ -12,7 +12,7 @@ const HistoryPage = () => {
     return(
         <>
             <div className="flex">
-                <div className="grow-1">
+                <div className={history.length !== 0 ? "grow-1" : ""}>
                     <Sidebar />
                 </div>
                 <div className="container center-block">
@@ -20,7 +20,7 @@ const HistoryPage = () => {
                         <h2 className = "h-l">History</h2>
                         <button className="btn btn-error" onClick = {() => deleteHistory(userDispatch)}>Delete History</button>
                     </div>
-                    <div className="flex gap-m space-between m3-top self-start">
+                    <div className="flex gap-m space-around m3-top self-start">
                         {renderVideoCards(reverseOfHistory)}
                     </div>
                 </div>
