@@ -1,6 +1,5 @@
-import { Link, NavLink, useParams } from "react-router-dom"
+import { Link, NavLink, useLocation, useNavigate, useParams } from "react-router-dom"
 import Sidebar from "../components/sidebar"
-import VideoCard from "../components/video-card"
 import { useUser } from "../context/user-context"
 import dislikeVideo from "../context/user-functions/dislikeVideo"
 import { useVideos } from "../context/video-context"
@@ -14,8 +13,12 @@ const VideoPage = () => {
 
     const {addToWatchLater,userDispatch,userState,removeFromWatchlater,likeVideo} = useUser()
 
-    const {title,creator,description,views,categoryName} = videoLibrary.find((video) => video["_id"] === videoId)
+    const navigate = useNavigate()
 
+    const location = useLocation()
+
+    const {title,creator,description,views,categoryName} = videoLibrary.find((video) => video["_id"] === videoId) 
+    
     const videosOfSameCategory = videoLibrary.filter((video) => video.categoryName === categoryName && video["_id"] !== videoId)
 
     //console.log(selectedVideoDetails)
@@ -25,7 +28,26 @@ const VideoPage = () => {
 
     const alreadyInLikedVideos = userState.likes.filter((video) => video["_id"] === videoId)
 
-    console.log("Already in watch later ?",alreadyInWatchLater)
+    //console.log("Already in watch later ?",alreadyInWatchLater)
+
+    const handleLikeClick = () => {
+        if(userState.isLoggedIn){
+            alreadyInLikedVideos.length > 0 ? dislikeVideo(videoId,userDispatch) : likeVideo({"_id": videoId , title, creator, views},userDispatch)
+        }
+        else{
+            navigate("/login",{state : {from : location.pathname}})
+        }
+    }
+
+    const handleWatchlaterClick = () => {
+        if(userState.isLoggedIn){
+            alreadyInWatchLater.length > 0 ? removeFromWatchlater(videoId,userDispatch) : addToWatchLater({_id : videoId , title , creator ,description ,views , categoryName},userDispatch)
+        }
+        else{
+            navigate("/login",{state : {from : location.pathname}})
+        }
+    }
+
 
     return(
         <>
@@ -41,9 +63,9 @@ const VideoPage = () => {
                     
                         <div className = "flex gap-m space-between m2-top">
                             <div className="flex gap-m">
-                                <i class= {`material-icons cursor-pointer ${alreadyInLikedVideos.length > 0 ? "success-text-colour" : "primary-text-colour"}`} onClick = {() => alreadyInLikedVideos.length > 0 ? dislikeVideo(videoId,userDispatch) : likeVideo({"_id": videoId , title, creator, views},userDispatch)} >thumb_up</i>
-                                <i class={`material-icons cursor-pointer ${alreadyInWatchLater.length > 0 ? "success-text-colour" :"primary-text-colour"}`} onClick = {() => alreadyInWatchLater.length > 0 ? removeFromWatchlater(videoId,userDispatch) : addToWatchLater({_id : videoId , title , creator ,description ,views , categoryName},userDispatch)} >schedule</i>
-                                <Link to = {`/playlists/${videoId}`} class="material-icons cursor-pointer primary-text-colour">playlist_add</Link>
+                                <i class= {`material-icons cursor-pointer ${alreadyInLikedVideos.length > 0 ? "success-text-colour" : "primary-text-colour"}`} onClick = {handleLikeClick} >thumb_up</i>
+                                <i class={`material-icons cursor-pointer ${alreadyInWatchLater.length > 0 ? "success-text-colour" :"primary-text-colour"}`} onClick = {handleWatchlaterClick} >schedule</i>
+                                <Link to = {userState.isLoggedIn ? `/playlists/${videoId}` : "/login"} class="material-icons cursor-pointer primary-text-colour">playlist_add</Link>
                             </div>
                             <div className="flex gap-m">
                                 <span>{views} Views</span>

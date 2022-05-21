@@ -1,7 +1,11 @@
-import { Route, Routes } from "react-router-dom";
+import {useEffect} from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/footer";
 import Nav from "./components/nav";
+import { useUser } from "./context/user-context";
+import RequiresAuth from "./functions/requiresAuth";
+import HistoryPage from "./pages/history";
 import Homepage from "./pages/homepage";
 import LikedVideos from "./pages/liked";
 import Login from "./pages/login";
@@ -14,6 +18,7 @@ import WatchLaterPage from "./pages/watch-later";
 
 
 function App() {
+
   return (
     <div className="App">
       <Nav />
@@ -23,11 +28,12 @@ function App() {
         <Route path = "/video/:videoId" element = {<VideoPage />} />
         <Route path = "/login" element = {<Login />} />
         <Route path = "/signup" element = {<Signup />} />
-        <Route path = "/watch-later" element = {<WatchLaterPage />} />
-        <Route path = "/liked-videos" element = {<LikedVideos />} />
-        <Route path = "/playlists" element ={<PlaylistListing />} />
-        <Route path = "/playlists/:videoId" element ={<PlaylistListing />} />
-        <Route path = "/playlist/:playlistId" element = {<PlaylistPage />} />
+        <Route path = "/watch-later" element = {<RequiresAuth><WatchLaterPage /></RequiresAuth>} />
+        <Route path = "/liked-videos" element = {<RequiresAuth><LikedVideos /></RequiresAuth>} />
+        <Route path = "/playlists" element ={<RequiresAuth><PlaylistListing /></RequiresAuth>} />
+        <Route path = "/playlists/:videoId" element ={<RequiresAuth><PlaylistListing /></RequiresAuth>} />
+        <Route path = "/playlist/:playlistId" element = {<RequiresAuth><PlaylistPage /></RequiresAuth>} />
+        <Route path = "/history" element = {<RequiresAuth><HistoryPage /></RequiresAuth>} />
       </Routes>
       <Footer />
     </div>

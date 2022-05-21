@@ -1,8 +1,7 @@
 import axios from "axios"
 
 const removeFromPlaylist = (playlistId,videoId,userDispatch) => {
-    //console.log("Video Id is ",videoId , "Playlist Id is ",playlistId)
-
+   
     const encodedToken = localStorage.getItem("userToken")
 
     axios

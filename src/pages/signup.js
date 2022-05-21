@@ -1,14 +1,16 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useAuth } from "../context/auth-context"
 import { useUser } from "../context/user-context"
 
 const Signup = () => {
     
-    const {setEmail,setPassword,authFunction,email,password} = useAuth()
+    const {setEmail,setPassword,authFunction,email,password,authError,setAuthError} = useAuth()
 
     const navigate = useNavigate()
 
     const {userDispatch} = useUser()
+
+    const {state : {from}} = useLocation()
 
     return(
         <div className="flex flex-center height-100vh">
@@ -25,8 +27,10 @@ const Signup = () => {
                         <input type = "password" id = "password-field" className = "input-field m2-top full-width" style = {{display: "block",width:"100%"}} placeholder="Please Enter Password Here" value = {password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
 
-                    <button className="btn btn-secondary full-width m2-top" onClick = {() => authFunction(email,password,userDispatch,navigate,"signup")}>Sign Up</button>
-    
+                    <button className="btn btn-secondary full-width m2-top" onClick = {() => authFunction(email,password,userDispatch,navigate,"signup",from,setAuthError)}>Sign Up</button>
+
+                    <p className="error-colour-text m2-top">{authError}</p>
+
                 </div>
             </div>
         </div>

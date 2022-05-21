@@ -2,8 +2,6 @@ import axios from "axios"
 
 const addToPlaylist = (video,playlistId,userDispatch,setModalActive) => {
 
-   console.log("what am I loggin as video ",video)
-
    const encodedToken = localStorage.getItem("userToken")
 
     axios
