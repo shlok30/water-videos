@@ -20,12 +20,12 @@ const Login = () => {
                 <div className = "container auth-container center-block" style={{border:"1px solid black"}}>
                     <div className = "primary-text center-text text-m bold primary-colour">Login</div>
                     <div className = "padding-s">
-                        <label htmlFor="email-field" className="input-label">Email Address</label>
+                        <label htmlFor="email-field" className="input-label" placeholder="test@gmail.com">Email Address</label>
                         <input type = "email" id = "email-field" className = "input-field m2-top full-width" style = {{display: "block",width:"100%"}} placeholder="Please Enter Email Here" value = {email} onChange = {(e) => setEmail(e.target.value)} />
                     </div>
 
                     <div className="padding-s flex flex-column">
-                        <label htmlFor="password-field" className="input-label">Enter Password</label>
+                        <label htmlFor="password-field" className="input-label" placeholder="test123">Enter Password</label>
                         <input type = "password" id = "password-field" className = "input-field m2-top full-width" style = {{display: "block",width:"100%"}} placeholder="Please Enter Password Here" value = {password} onChange = {(e) => setPassword(e.target.value)} />
                     </div>
                 
