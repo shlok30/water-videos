@@ -9,8 +9,6 @@ const VideoCard = ({width,id,title,creator,views}) => {
 
     const {playlistId} = useParams()
 
-    //console.log("location path",location.pathname)
-
     const path = location.pathname.split("/") // path[1] will contain "playlist" which will allow me to identify the location and conditionally render Remove from Playlist Button
     
     const {removeFromWatchlater,userDispatch,dislikeVideo,removeFromPlaylist,addToHistory,removeFromHistory} = useUser()

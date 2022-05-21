@@ -9,9 +9,6 @@ const AuthContextProvider = ({children}) => {
     const [password, setPassword] = useState("")
     const [authError,setAuthError] = useState("")
 
-    //console.log("Email State",email)
-    //console.log("Password State",password)
-
     return(
         <AuthContext.Provider value ={{setEmail,setPassword,authFunction,email,password,authError,setAuthError}}>
             {children}
