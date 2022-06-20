@@ -91,3 +91,8 @@
 .error-colour-text{
   color:var(--error-color)
 }
+
+.video-player{
+  width : 100%;
+  height : 25rem
+}

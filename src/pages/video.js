@@ -17,7 +17,7 @@ const VideoPage = () => {
 
     const location = useLocation()
 
-    const {title,creator,description,views,categoryName} = videoLibrary.find((video) => video["_id"] === videoId) 
+    const {title,creator,description,views,categoryName,videoLink,thumbnail} = videoLibrary.find((video) => video["_id"] === videoId) 
     
     const videosOfSameCategory = videoLibrary.filter((video) => video.categoryName === categoryName && video["_id"] !== videoId)
 
@@ -32,7 +32,7 @@ const VideoPage = () => {
 
     const handleLikeClick = () => {
         if(userState.isLoggedIn){
-            alreadyInLikedVideos.length > 0 ? dislikeVideo(videoId,userDispatch) : likeVideo({"_id": videoId , title, creator, views},userDispatch)
+            alreadyInLikedVideos.length > 0 ? dislikeVideo(videoId,userDispatch) : likeVideo({"_id": videoId , title, creator, views, thumbnail},userDispatch)
         }
         else{
             navigate("/login",{state : {from : location.pathname}})
@@ -41,7 +41,7 @@ const VideoPage = () => {
 
     const handleWatchlaterClick = () => {
         if(userState.isLoggedIn){
-            alreadyInWatchLater.length > 0 ? removeFromWatchlater(videoId,userDispatch) : addToWatchLater({_id : videoId , title , creator ,description ,views , categoryName},userDispatch)
+            alreadyInWatchLater.length > 0 ? removeFromWatchlater(videoId,userDispatch) : addToWatchLater({_id : videoId , title , creator ,description ,views , categoryName, thumbnail},userDispatch)
         }
         else{
             navigate("/login",{state : {from : location.pathname}})
@@ -59,7 +59,7 @@ const VideoPage = () => {
                     <h2 className = "h-l m5-top">{title}</h2>
                     <p className="text-s">{creator}</p>
                     <div className="m2-top">
-                        <img src = "https://cdn.mos.cms.futurecdn.net/foW7FiHncAEnBbTu6d7KKA.jpg" alt = "Video Image" />
+                    <iframe className="video-player" src={videoLink} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     
                         <div className = "flex gap-m space-between m2-top">
                             <div className="flex gap-m">
