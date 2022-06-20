@@ -10,7 +10,7 @@ export const videos = [
     _id: uuid(),
     title: "Awesome Video about Coding",
     description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+      "Learn React for free in this Video",
     creator: "Soham Shah",
     views : "50K",
     isTrending:false,
@@ -23,7 +23,7 @@ export const videos = [
     title: "Neural Networks from Scratch - P.1 Intro and Neuron Code",
     creator: "Sentdex",
     description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+      "They say AI/ML is the present and future of tech so why not learn it right now?",
     views : "150K",
     isTrending : false,
     categoryName : "Computer Programming",
@@ -35,7 +35,7 @@ export const videos = [
     title: "Basics of Jeet Kun Do",
     creator: "Bruce Lee",
     description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+      "Learn the fundamentals of Bruce Lee's combat system.",
     views : "450K",
     isTrending:false,
     categoryName : "Entertainment",
@@ -47,7 +47,7 @@ export const videos = [
     title: "Naruto Motivational Music",
     creator: "Mr.Uzumaki",
     description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+      "Peaceful music from Naruto series to help you relax and feel happy",
     views : "120M",
     isTrending : true,
     categoryName : "Entertainment",
@@ -59,7 +59,7 @@ export const videos = [
     title: "Why Front End will always be in demand",
     creator: "Shlok",
     description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+      "Watch this video to understand why front end devs will always be in demand",
     views : "100M",
     isTrending : true,
     categoryName : "Computer Programming",
@@ -68,10 +68,10 @@ export const videos = [
   },
   {
     _id: uuid(),
-    title: "How to switch off a light bulb ",
-    creator: "Sharma Ji",
+    title: "Light ",
+    creator: "Charlie Puth",
     description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+      "Music Video of Charlie Puth's latest song",
     views : "400M",
     isTrending : true,
     categoryName : "Entertainment",
@@ -81,9 +81,9 @@ export const videos = [
   {
     _id: uuid(),
     title: "Shayad",
-    creator: "Arijit SIngh",
+    creator: "Arijit Singh",
     description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+      "Title song of the movie Love Aaj Kal by Arijit Singh",
     views : "500M",
     isTrending : true,
     categoryName : "Entertainment",
@@ -95,7 +95,7 @@ export const videos = [
     title: "Dr. Strange Trailer",
     creator: "Marvel",
     description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+      "Watch the latest trailer of Dr.Strange in the Multiverse of Madness and Pre Book your tickets",
     views : "650M",
     isTrending : true,
     categoryName : "Entertainment",
@@ -107,7 +107,7 @@ export const videos = [
     title: "Guided Meditation",
     creator: "Sadhguru",
     description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+      "Follow along to this video to learn the basics of meditation",
     views : "190K",
     isTrending : true,
     categoryName : "Entertainment",
