@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
 import { useUser } from "../context/user-context"
 
-const VideoCard = ({width,id,title,creator,views}) => {
+const VideoCard = ({width,id,title,creator,views,thumbnail}) => {
 
     const location = useLocation()
 
@@ -15,7 +15,7 @@ const VideoCard = ({width,id,title,creator,views}) => {
 
     const handleClick = () => { 
         
-        addToHistory({"_id": id , title, creator, views},userDispatch)
+        addToHistory({"_id": id , title, creator, views, thumbnail},userDispatch)
         navigate(`/video/${id}`)
 
     }
@@ -23,7 +23,7 @@ const VideoCard = ({width,id,title,creator,views}) => {
     return(
         <div className={`card-container flex flex-column gap-m ${width}`}>
             <div className="img-container badge">
-            <img src="https://images.unsplash.com/photo-1643313947128-849e4da4fd5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2142&q=80"/>
+            <img src= {thumbnail}/>
             <span className="badge-icon">New</span>
             </div>
 
