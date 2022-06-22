@@ -75,8 +75,8 @@ export const videos = [
     views : "400M",
     isTrending : true,
     categoryName : "Entertainment",
-    thumbnail : "https://img.youtube.com/vi/mF2BHtQh4EI/maxresdefault.jpg",
-    videoLink : "https://www.youtube.com/embed/mF2BHtQh4EI"
+    thumbnail : "https://img.youtube.com/vi/WFsAon_TWPQ/maxresdefault.jpg",
+    videoLink : "https://www.youtube.com/watch?v=WFsAon_TWPQ"
   },
   {
     _id: uuid(),
